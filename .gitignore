@@ -2,3 +2,4 @@ DerivedData/
 *.xcuserstate
 *.xcworkspace
 Pods/
+.DS_Store
