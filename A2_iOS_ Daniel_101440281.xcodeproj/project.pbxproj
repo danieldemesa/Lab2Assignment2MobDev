@@ -6,6 +6,11 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		417F78042D9CE9DB007491E2 /* Product+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 417F78032D9CE9DB007491E2 /* Product+CoreDataProperties.swift */; };
+		417F78052D9CE9DB007491E2 /* Product+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 417F78022D9CE9DB007491E2 /* Product+CoreDataClass.swift */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		417F77D62D9CDB64007491E2 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -27,6 +32,8 @@
 		417F77C02D9CDB5F007491E2 /* A2_iOS_ Daniel_101440281.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "A2_iOS_ Daniel_101440281.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		417F77D52D9CDB64007491E2 /* A2_iOS_ Daniel_101440281Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "A2_iOS_ Daniel_101440281Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		417F77DF2D9CDB64007491E2 /* A2_iOS_ Daniel_101440281UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "A2_iOS_ Daniel_101440281UITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		417F78022D9CE9DB007491E2 /* Product+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Product+CoreDataClass.swift"; sourceTree = "<group>"; };
+		417F78032D9CE9DB007491E2 /* Product+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Product+CoreDataProperties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -75,6 +82,8 @@
 		417F77B72D9CDB5F007491E2 = {
 			isa = PBXGroup;
 			children = (
+				417F78022D9CE9DB007491E2 /* Product+CoreDataClass.swift */,
+				417F78032D9CE9DB007491E2 /* Product+CoreDataProperties.swift */,
 				417F77C22D9CDB5F007491E2 /* A2_iOS_ Daniel_101440281 */,
 				417F77D82D9CDB64007491E2 /* A2_iOS_ Daniel_101440281Tests */,
 				417F77E22D9CDB64007491E2 /* A2_iOS_ Daniel_101440281UITests */,
@@ -236,6 +245,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				417F78042D9CE9DB007491E2 /* Product+CoreDataProperties.swift in Sources */,
+				417F78052D9CE9DB007491E2 /* Product+CoreDataClass.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,5 +1,3 @@
-//per
-
 import CoreData
 
 struct PersistenceController {
@@ -12,7 +10,7 @@ struct PersistenceController {
         
         // Sample Product data for preview
         for _ in 0..<10 {
-            let newProduct = Product(context: viewContext)
+            let newProduct = Product(context: viewContext) // Changed from ProductListView to Product
             newProduct.productName = "Sample Product"
             newProduct.productDescription = "A sample description"
             newProduct.productPrice = NSDecimalNumber(string: "19.99")
@@ -55,4 +53,3 @@ struct PersistenceController {
         }
     }
 }
-

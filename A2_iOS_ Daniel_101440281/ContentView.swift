@@ -1,7 +1,6 @@
 import SwiftUI
-import CoreData
 
-struct ProductListView: View {
+struct ContentView: View {
     @Environment(\.managedObjectContext) private var viewContext
 
     @FetchRequest(
