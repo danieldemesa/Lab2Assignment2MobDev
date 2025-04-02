@@ -1,34 +1,36 @@
-//
-//  ContentView.swift
-//  A2_iOS_ Daniel_101440281
-//
-//  Created by daniel demesa on 2025-04-01.
-//
-
 import SwiftUI
 import CoreData
 
 struct ContentView: View {
     @Environment(\.managedObjectContext) private var viewContext
 
+    // FetchRequest for Product entity
     @FetchRequest(
-        sortDescriptors: [NSSortDescriptor(keyPath: \Item.timestamp, ascending: true)],
+        entity: Product.entity(),
+        sortDescriptors: [NSSortDescriptor(keyPath: \Product.productName, ascending: true)],
         animation: .default)
-    private var items: FetchedResults<Item>
+    private var products: FetchedResults<Product>
 
     var body: some View {
         NavigationView {
-            List {
-                ForEach(items) { item in
-                    NavigationLink {
-                        Text("Item at \(item.timestamp!, formatter: itemFormatter)")
-                    } label: {
-                        Text(item.timestamp!, formatter: itemFormatter)
-                    }
+            VStack {
+                // Display the first product
+                if let firstProduct = products.first {
+                    Text(firstProduct.productName ?? "No name")
+                        .font(.largeTitle)
+                        .padding()
+                    
+                    Text(firstProduct.productDescription ?? "No description")
+                        .padding()
+                } else {
+                    Text("No products available")
+                        .font(.title)
+                        .padding()
                 }
-                .onDelete(perform: deleteItems)
             }
+            .navigationTitle("First Product")
             .toolbar {
+                // Toolbar button to add new item
                 ToolbarItem(placement: .navigationBarTrailing) {
                     EditButton()
                 }
@@ -38,35 +40,35 @@ struct ContentView: View {
                     }
                 }
             }
-            Text("Select an item")
         }
     }
 
+    // Add a new item (for demonstration purposes)
     private func addItem() {
         withAnimation {
-            let newItem = Item(context: viewContext)
-            newItem.timestamp = Date()
+            let newProduct = Product(context: viewContext)
+            newProduct.productName = "New Product"
+            newProduct.productDescription = "Product Description"
+            newProduct.productPrice = NSDecimalNumber(string: "10.00")
+            newProduct.productProvider = "Provider"
 
             do {
                 try viewContext.save()
             } catch {
-                // Replace this implementation with code to handle the error appropriately.
-                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
                 let nsError = error as NSError
                 fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
             }
         }
     }
 
+    // Delete items (to be used later for managing products)
     private func deleteItems(offsets: IndexSet) {
         withAnimation {
-            offsets.map { items[$0] }.forEach(viewContext.delete)
+            offsets.map { products[$0] }.forEach(viewContext.delete)
 
             do {
                 try viewContext.save()
             } catch {
-                // Replace this implementation with code to handle the error appropriately.
-                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
                 let nsError = error as NSError
                 fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
             }
@@ -74,6 +76,7 @@ struct ContentView: View {
     }
 }
 
+// Formatter for displaying timestamp (used previously, could be updated for product)
 private let itemFormatter: DateFormatter = {
     let formatter = DateFormatter()
     formatter.dateStyle = .short
